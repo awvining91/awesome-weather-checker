@@ -1,71 +1,56 @@
-
-var citiesListArr = [];
-var numOfCities = 9;
-
-var unit = "units=imperial";
-
-var dailyUVIndexApiStarts = "https://api.openweathermap.org/data/2.5/uvi?";
-var forecastWeatherApiStarts =
-  "https://api.openweathermap.org/data/2.5/onecall?";
-// select from html element
-var searchCityForm = $("#searchCityForm");
-var searchedCities = $("#searchedCityLi");
-
-
-
-
-
-var dailyWeatherApiStarts = "https://api.openweathermap.org/data/3?q=?"
-var personAPIKey = "appid=166ce9dbf117f228937f391618d752ca";
-
-var getCityWeather = function (searchCityName) {
-     var apiUrl =
-     dailyWeatherApiStarts + searchCityName + "&" + unit;
-
-    fetch(apiUrl).then(function (response) {
-        if (response.ok ) {
-            return response.json().then(function (response) {
-                $("#cityName").html(response.name);
-
-                var unixTime = response.dt;
-                var date = moment.unix(unixTime).format("MM/DD/YY");
-                $("#currentdate").html(date);
-
-                var weatherIncoUrl =
-                    "http://openweatherapp.org/img/wn" +
-                    response.weather[0].icon +
-                    "@2x.png";
-
-                $("#weatherIconToday").attr("src", weatherIncoUrl);
-                $("tempToday").html(response.main.temp + " \u00B0F");
-                $("#windSpeedToday").html(response.wind.speed + " MPH");
-
-                var lat = response.coord.lat;
-                var lon = reponse.coord.lon;
-                getUVIndex(lat, lon);
-                getForecast(lat, lon);
-            });
-        } else {
-            alert("Please provide a valid city name.");
-        }
+let weather = {
+    apiKey: "166ce9dbf117f228937f391618d752ca",
+    fetchWeather: function (city) {
+      fetch(
+        "https://api.openweathermap.org/data/2.5/weather?q=" +
+          city +
+          "&units=imperial&appid=" +
+          this.apiKey
+      )
+        .then((response) => {
+          if (!response.ok) {
+            alert("No weather found.");
+            throw new Error("No weather found.");
+          }
+          return response.json();
+        })
+        .then((data) => this.displayWeather(data));
+    },
+    displayWeather: function (data) {
+      console.log(data);
+      const { name } = data;
+      const { icon, description} = data.weather[0];
+      const { temp, humidity, uvi } = data.main;
+      const { speed } = data.wind;
+      document.querySelector(".city").innerText = "Weather in " + name;
+      document.querySelector(".icon").src =
+        "https://openweathermap.org/img/wn/" + icon + ".png";
+      document.querySelector(".description").innerText = description;
+      document.querySelector(".temp").innerText = temp + "°F";
+      document.querySelector(".humidity").innerText =
+        "Humidity: " + humidity + "%";
+      document.querySelector(".wind").innerText =
+        "Wind speed: " + speed + " m/h";
+      document.querySelector(".uv-index").innerText = 
+         "UV index: " + uvi;
+      document.querySelector(".weather").classList.remove("loading");
+      
+    },
+    search: function () {
+      this.fetchWeather(document.querySelector(".search-bar").value);
+    },
+  };
+  
+  document.querySelector(".search button").addEventListener("click", function () {
+    weather.search();
+  });
+  
+  document
+    .querySelector(".search-bar")
+    .addEventListener("keyup", function (event) {
+      if (event.key == "Enter") {
+        weather.search();
+      }
     });
-};
-
-       
-
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
+  weather.fetchWeather("Mesa");
