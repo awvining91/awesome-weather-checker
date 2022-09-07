@@ -1,26 +1,26 @@
-let weather = {al
-    myApi: "166ce9dbf117f228937f391618d752ca",
-    getClimate: function (local) {
+let weather = {
+    apiKey: "166ce9dbf117f228937f391618d752ca",
+    fetchWeather: function (local) {
       fetch(
         "https://api.openweathermap.org/data/2.5/weather?q=" +
           local +
           "&units=imperial&appid=" +
-          this.myApi
+          this.apiKey
       )
-        .then((retrieved) => {
-          if (!retrieved.ok) {
-            alert("Please enter a valid city!!!");
-            throw new Error("Please enter a valid city!!!");
+        .then((response) => {
+          if (!response.ok) {
+            alert("No weather found.");
+            throw new Error("No weather found.");
           }
-          return retrieved.json();
+          return response.json();
         })
-        .then((data) => this.showClimate(data));
+        .then((data) => this.displayWeather(data));
     },
-    showClimate: function (data) {
+    displayWeather: function (data) {
       console.log(data);
       const { name } = data;
       const { icon, description} = data.weather[0];
-      const { temp, humidity, } = data.main;
+      const { temp, humidity, uvi } = data.main;
       const { speed } = data.wind;
       document.querySelector(".city").innerText = "Weather in " + name;
       document.querySelector(".icon").src =
@@ -28,16 +28,16 @@ let weather = {al
       document.querySelector(".description").innerText = description;
       document.querySelector(".temp").innerText = temp + "°F";
       document.querySelector(".humidity").innerText =
-        "The humidity is: " + humidity + "%";
+        "Humidity: " + humidity + "%";
       document.querySelector(".wind").innerText =
         "Wind speed: " + speed + " m/h";
       
       
-      document.querySelector(".weather").classList.remove("updating");
+      document.querySelector(".weather").classList.remove("loading");
       
     },
     search: function () {
-      this.getClimate(document.querySelector(".search-bar").value);
+      this.fetchWeather(document.querySelector(".search-bar").value);
     },
   };
   
@@ -53,7 +53,7 @@ let weather = {al
       }
     });
   
-  weather.getClimate("Mesa");
+  weather.fetchWeather("Mesa");
   
   
   //------------------------------------------------------//
