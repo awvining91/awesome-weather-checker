@@ -31,8 +31,8 @@ let weather = {
         "Humidity: " + humidity + "%";
       document.querySelector(".wind").innerText =
         "Wind speed: " + speed + " m/h";
-      document.querySelector(".uv-index").innerText = 
-         "UV index: " + uvi;
+      
+      
       document.querySelector(".weather").classList.remove("loading");
       
     },
@@ -54,3 +54,35 @@ let weather = {
     });
   
   weather.fetchWeather("Mesa");
+  
+  
+  //------------------------------------------------------//
+  
+  var getUVIndex = function (lat, lon) {
+    // formate the OpenWeather api url
+    var apiUrl =
+      dailyUVIndexApiStarts +
+      personalAPIKey +
+      "&lat=" +
+      lat +
+      "&lon=" +
+      lon +
+      "&" +
+      unit;
+    fetch(apiUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (response) {
+        // remove all class background
+        $("#UVIndexToday").removeClass();
+        $("#UVIndexToday").html(response.value);
+        if (response.value < 3) {
+          $("#UVIndexToday").addClass("p-1 rounded bg-success text-white");
+        } else if (response.value < 8) {
+          $("#UVIndexToday").addClass("p-1 rounded bg-warning text-white");
+        } else {
+          $("#UVIndexToday").addClass("p-1 rounded bg-danger text-white");
+        }
+      });
+  };
