@@ -1,26 +1,26 @@
-let weather = {
-    apiKey: "166ce9dbf117f228937f391618d752ca",
-    fetchWeather: function (city) {
+let weather = {al
+    myApi: "166ce9dbf117f228937f391618d752ca",
+    getClimate: function (local) {
       fetch(
         "https://api.openweathermap.org/data/2.5/weather?q=" +
-          city +
+          local +
           "&units=imperial&appid=" +
-          this.apiKey
+          this.myApi
       )
-        .then((response) => {
-          if (!response.ok) {
-            alert("No weather found.");
-            throw new Error("No weather found.");
+        .then((retrieved) => {
+          if (!retrieved.ok) {
+            alert("Please enter a valid city!!!");
+            throw new Error("Please enter a valid city!!!");
           }
-          return response.json();
+          return retrieved.json();
         })
-        .then((data) => this.displayWeather(data));
+        .then((data) => this.showClimate(data));
     },
-    displayWeather: function (data) {
+    showClimate: function (data) {
       console.log(data);
       const { name } = data;
       const { icon, description} = data.weather[0];
-      const { temp, humidity, uvi } = data.main;
+      const { temp, humidity, } = data.main;
       const { speed } = data.wind;
       document.querySelector(".city").innerText = "Weather in " + name;
       document.querySelector(".icon").src =
@@ -28,16 +28,16 @@ let weather = {
       document.querySelector(".description").innerText = description;
       document.querySelector(".temp").innerText = temp + "°F";
       document.querySelector(".humidity").innerText =
-        "Humidity: " + humidity + "%";
+        "The humidity is: " + humidity + "%";
       document.querySelector(".wind").innerText =
         "Wind speed: " + speed + " m/h";
       
       
-      document.querySelector(".weather").classList.remove("loading");
+      document.querySelector(".weather").classList.remove("updating");
       
     },
     search: function () {
-      this.fetchWeather(document.querySelector(".search-bar").value);
+      this.getClimate(document.querySelector(".search-bar").value);
     },
   };
   
@@ -53,39 +53,11 @@ let weather = {
       }
     });
   
-  weather.fetchWeather("Mesa");
+  weather.getClimate("Mesa");
   
   
   //------------------------------------------------------//
   
-  var getUVIndex = function (lat, lon) {
-    // formate the OpenWeather api url
-    var apiUrl =
-      dailyUVIndexApiStarts +
-      personalAPIKey +
-      "&lat=" +
-      lat +
-      "&lon=" +
-      lon +
-      "&" +
-      unit;
-    fetch(apiUrl)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (response) {
-        // remove all class background
-        $("#UVIndexToday").removeClass();
-        $("#UVIndexToday").html(response.value);
-        if (response.value < 3) {
-          $("#UVIndexToday").addClass("p-1 rounded bg-success text-white");
-        } else if (response.value < 8) {
-          $("#UVIndexToday").addClass("p-1 rounded bg-warning text-white");
-        } else {
-          $("#UVIndexToday").addClass("p-1 rounded bg-danger text-white");
-        }
-      });
-  };
 
   /* I used this youtube video as reference for the javascript logic <!-- I used this youtube as reference for the html https://www.youtube.com/watch?v=WZNG8UomjSI&list=WL&index=10&t=15s credit to original creator */
 

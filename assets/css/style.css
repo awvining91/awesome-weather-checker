@@ -56,8 +56,8 @@ body {
   }
   
   h1.temp {
-    margin: 0;
-    margin-bottom: 0.4em;
+    margin: 1;
+    margin-bottom: 0.3em;
   }
   
   .flex {
@@ -67,22 +67,22 @@ body {
   
   .description {
     text-transform: capitalize;
-    margin-left: 8px;
+    margin-left: 7px;
   }
   
   .weather.loading {
     visibility: hidden;
-    max-height: 20px;
+    max-height: 19px;
     position: relative;
   }
   
   .weather.loading:after {
     visibility: visible;
-    content: "Loading...";
-    color: white;
+    content: "Updating...";
+    color: rgba(255, 255, 255, 0.856);
     position: absolute;
-    top: 0;
-    left: 20px;
+    top: 1;
+    left: 19px;
   }
 
   /* I used this youtube as reference for the css https://www.youtube.com/watch?v=WZNG8UomjSI&list=WL&index=10&t=15s credit to original */
