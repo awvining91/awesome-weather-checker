@@ -3,7 +3,7 @@ of my time fighting with javascript rather than on aesthetics and UI
 
 */
   
-  button {
+  button    {
     margin: 0.7em;
     border-radius: 49%;
     border: none;
@@ -27,6 +27,7 @@ of my time fighting with javascript rather than on aesthetics and UI
 
 
 body {
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,6 +44,8 @@ body {
   h1.temp {
     margin: 3;
     margin-bottom: 0.6em;
+
+
   }
   
   .flex {
@@ -67,11 +70,13 @@ body {
     width: 99%;
     max-width: 418px;
     margin: 3em;
+
   }
   
 
   
   input.search-bar {
+
     border: none;
     outline: none;
     padding: 0.6em 2em;
