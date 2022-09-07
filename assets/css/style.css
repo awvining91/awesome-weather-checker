@@ -1,36 +1,14 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 99vh;
-    margin: 1;
-    font-family: 'ariel', sans-serif;
-    background: rgba(34, 34, 34, 0.692);
-    background-image: url('https://source.unsplash.com/1600x900/?landscape');
-    font-size: 119%;
-  }
-  
-  .card {
-    background: #000000ab;
-    color: rgba(255, 255, 255, 0.795);
-    padding: 3em;
-    border-radius: 31px;
-    width: 99%;
-    max-width: 418px;
-    margin: 3em;
-  }
-  
-  .search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+/* I ended up not using css boostrap on this project, as I spent most
+of my time fighting with javascript rather than on aesthetics and UI
+
+*/
   
   button {
     margin: 0.7em;
     border-radius: 49%;
     border: none;
     height: 47px;
+
     width: 47px;
     outline: none;
     background: #7c7c7c13;
@@ -38,21 +16,30 @@ body {
     cursor: pointer;
    
   }
-  
-  input.search-bar {
-    border: none;
-    outline: none;
-    padding: 0.6em 2em;
-    border-radius: 23px;
-    background: #7c7c7c1e;
-    color: rgba(255, 255, 255, 0.774);
-    font-family: inherit;
-    font-size: 102%;
-    width: calc(100% - 100px);
+
+
+
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 99vh;
+
+    margin: 1;
+    font-family: 'ariel', sans-serif;
+    background: rgba(34, 34, 34, 0.692);
+    background-image: url('https://source.unsplash.com/1600x900/?landscape');
+    font-size: 119%;
   }
   
 
-  
   h1.temp {
     margin: 3;
     margin-bottom: 0.6em;
@@ -70,4 +57,37 @@ body {
   
 
 
+
+  .card {
+    background: #000000ab;
+    color: rgba(255, 255, 255, 0.795);
+    padding: 3em;
+
+    border-radius: 31px;
+    width: 99%;
+    max-width: 418px;
+    margin: 3em;
+  }
+  
+
+  
+  input.search-bar {
+    border: none;
+    outline: none;
+    padding: 0.6em 2em;
+    border-radius: 23px;
+
+    background: #7c7c7c1e;
+    color: rgba(255, 255, 255, 0.774);
+    font-family: inherit;
+    font-size: 102%;
+    width: calc(100% - 100px);
+  }
+  
+
+  
+
+
+
   /* I used this youtube video as reference for the css https://www.youtube.com/watch?v=WZNG8UomjSI&list=WL&index=10&t=15s credit to original */
+  /* i hope you enjoyed my css! :D */

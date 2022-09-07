@@ -1,3 +1,5 @@
+
+
 let weather = {
     myLogin: "166ce9dbf117f228937f391618d752ca",
     getClimate: function (here) {
@@ -16,19 +18,26 @@ let weather = {
         })
         .then((data) => this.showClimate(data));
     },
+
     showClimate: function (data) {
       console.log(data);
       const { name } = data;
       const { icon, description} = data.weather[0];
       const { temp, humidity, uvi } = data.main;
       const { speed } = data.wind;
+
       document.querySelector(".place").innerText = "Weather in " + name;
+
       document.querySelector(".picture").src =
         "https://openweathermap.org/img/wn/" + icon + ".png";
+
       document.querySelector(".clouds").innerText = description;
+
       document.querySelector(".degrees").innerText = temp + "°F";
+
       document.querySelector(".wet").innerText =
         "Humidity: " + humidity + "%";
+
       document.querySelector(".wind").innerText =
         "Wind speed: " + speed + " m/h";
       
@@ -75,6 +84,12 @@ let weather = {
   https://developer.mozilla.org/en-US/docs/Web/API/Response
   
   https://webdesign.tutsplus.com/tutorials/build-a-simple-weather-app-with-vanilla-javascript--cms-33893
+
+  https://dev.to/shantanu_jana/how-to-make-a-weather-app-using-javascript-4lke
+
+  https://www.geeksforgeeks.org/weather-app-using-vanilla-javascript/
+
+  https://www.studytonight.com/post/how-to-build-a-weather-app-using-javascript-for-complete-beginners
 
 
 
