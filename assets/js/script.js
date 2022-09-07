@@ -14,9 +14,9 @@ let weather = {
           }
           return received.json();
         })
-        .then((data) => this.displayWeather(data));
+        .then((data) => this.showClimate(data));
     },
-    displayWeather: function (data) {
+    showClimate: function (data) {
       console.log(data);
       const { name } = data;
       const { icon, description} = data.weather[0];
@@ -26,8 +26,8 @@ let weather = {
       document.querySelector(".picture").src =
         "https://openweathermap.org/img/wn/" + icon + ".png";
       document.querySelector(".clouds").innerText = description;
-      document.querySelector(".temp").innerText = temp + "°F";
-      document.querySelector(".humidity").innerText =
+      document.querySelector(".degrees").innerText = temp + "°F";
+      document.querySelector(".wet").innerText =
         "Humidity: " + humidity + "%";
       document.querySelector(".wind").innerText =
         "Wind speed: " + speed + " m/h";
