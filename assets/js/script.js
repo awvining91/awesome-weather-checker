@@ -1,9 +1,9 @@
 let weather = {
     myLogin: "166ce9dbf117f228937f391618d752ca",
-    getClimate: function (local) {
+    getClimate: function (here) {
       fetch(
         "https://api.openweathermap.org/data/2.5/weather?q=" +
-          local +
+          here +
           "&units=imperial&appid=" +
           this.myLogin
       )
@@ -22,10 +22,10 @@ let weather = {
       const { icon, description} = data.weather[0];
       const { temp, humidity, uvi } = data.main;
       const { speed } = data.wind;
-      document.querySelector(".city").innerText = "Weather in " + name;
-      document.querySelector(".icon").src =
+      document.querySelector(".place").innerText = "Weather in " + name;
+      document.querySelector(".picture").src =
         "https://openweathermap.org/img/wn/" + icon + ".png";
-      document.querySelector(".description").innerText = description;
+      document.querySelector(".clouds").innerText = description;
       document.querySelector(".temp").innerText = temp + "°F";
       document.querySelector(".humidity").innerText =
         "Humidity: " + humidity + "%";
