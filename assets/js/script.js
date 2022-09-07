@@ -1,6 +1,6 @@
 let weather = {
     myLogin: "166ce9dbf117f228937f391618d752ca",
-    fetchWeather: function (local) {
+    getClimate: function (local) {
       fetch(
         "https://api.openweathermap.org/data/2.5/weather?q=" +
           local +
@@ -37,7 +37,7 @@ let weather = {
       
     },
     search: function () {
-      this.fetchWeather(document.querySelector(".search-bar").value);
+      this.getClimate(document.querySelector(".search-bar").value);
     },
   };
   
@@ -53,7 +53,7 @@ let weather = {
       }
     });
   
-  weather.fetchWeather("Mesa");
+  weather.getClimate("Mesa");
   
   
   //------------------------------------------------------//
