@@ -1,18 +1,18 @@
 let weather = {
-    apiKey: "166ce9dbf117f228937f391618d752ca",
+    myLogin: "166ce9dbf117f228937f391618d752ca",
     fetchWeather: function (local) {
       fetch(
         "https://api.openweathermap.org/data/2.5/weather?q=" +
           local +
           "&units=imperial&appid=" +
-          this.apiKey
+          this.myLogin
       )
-        .then((response) => {
-          if (!response.ok) {
+        .then((received) => {
+          if (!received.ok) {
             alert("No weather found.");
             throw new Error("No weather found.");
           }
-          return response.json();
+          return received.json();
         })
         .then((data) => this.displayWeather(data));
     },
