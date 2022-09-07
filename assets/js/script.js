@@ -86,3 +86,24 @@ let weather = {
         }
       });
   };
+
+  /* I used this youtube video as reference for the javascript logic <!-- I used this youtube as reference for the html https://www.youtube.com/watch?v=WZNG8UomjSI&list=WL&index=10&t=15s credit to original creator */
+
+  /* Resources
+  https://openweathermap.org/api/one-call-3#current
+ 
+  https://www.youtube.com/watch?v=WZNG8UomjSI&list=WL&index=10&t=15s
+  
+  https://www.youtube.com/watch?v=6trGQWzg2AI&list=WL&index=14&t=2s
+  
+  https://www.youtube.com/watch?v=eMzHhu4TaqY&list=WL&index=13&t=177s
+  
+  https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+  
+  https://developer.mozilla.org/en-US/docs/Web/API/Response
+  
+  https://webdesign.tutsplus.com/tutorials/build-a-simple-weather-app-with-vanilla-javascript--cms-33893
+
+
+
+  */
