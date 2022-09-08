@@ -1,3 +1,7 @@
+
+
+
+
 /* Welcome to the javascript section! I had to start over many times on this 
 project due to various bugs and conflicts but the version that worked the best is shown
 below.
@@ -47,6 +51,8 @@ let weather = {
     With the help of the document mentation I was able to pull the info
     I needed out of the openweather map respone and return it to the correspoiding
     section in the html with the aid of the querySelector method.
+    
+    Youtube helped me understand how arrow functions work and how useful they can be.
 
     Finally I was able to add an event listener to the search bar so that when the 
     user types in a city the appropriate dat will pull up.
@@ -132,6 +138,9 @@ let weather = {
 
   https://www.studytonight.com/post/how-to-build-a-weather-app-using-javascript-for-complete-beginners
 
+  Refresh the page for cool background pictures!
 
+
+  I hope you enjoyed my weather app!!! :D
 
   */
