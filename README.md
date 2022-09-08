@@ -24,22 +24,22 @@ https://awvining91.github.io/awesome-weather-checker/
 
 ## References Used
 
--https://openweathermap.org/api/one-call-3#current
+- https://openweathermap.org/api/one-call-3#current
  
--https://www.youtube.com/watch?v=WZNG8UomjSI&list=WL&index=10&t=15s
+- https://www.youtube.com/watch?v=WZNG8UomjSI&list=WL&index=10&t=15s
   
--https://www.youtube.com/watch?v=6trGQWzg2AI&list=WL&index=14&t=2s
+- https://www.youtube.com/watch?v=6trGQWzg2AI&list=WL&index=14&t=2s
   
--https://www.youtube.com/watch?v=eMzHhu4TaqY&list=WL&index=13&t=177s
+- https://www.youtube.com/watch?v=eMzHhu4TaqY&list=WL&index=13&t=177s
   
--https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+- https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
   
--https://developer.mozilla.org/en-US/docs/Web/API/Response
+- https://developer.mozilla.org/en-US/docs/Web/API/Response
   
--https://webdesign.tutsplus.com/tutorials/build-a-simple-weather-app-with-vanilla-javascript--cms-33893
+- https://webdesign.tutsplus.com/tutorials/build-a-simple-weather-app-with-vanilla-javascript--cms-33893
 
--https://dev.to/shantanu_jana/how-to-make-a-weather-app-using-javascript-4lke
+- https://dev.to/shantanu_jana/how-to-make-a-weather-app-using-javascript-4lke
 
--https://www.geeksforgeeks.org/weather-app-using-vanilla-javascript/
+- https://www.geeksforgeeks.org/weather-app-using-vanilla-javascript/
 
--https://www.studytonight.com/post/how-to-build-a-weather-app-using-javascript-for-complete-beginners
+- https://www.studytonight.com/post/how-to-build-a-weather-app-using-javascript-for-complete-beginners
